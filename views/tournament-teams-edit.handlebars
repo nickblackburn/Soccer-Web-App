@@ -1,0 +1,34 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Tournament-Teams</h1>
+</div>
+<br>
+<body onload="prepopulateForm('tournamentTeamsForm', [{name: 'team', value: '{{teamId}}'}, {name: 'tournament', value: '{{tournamentId}}'}])">
+<form action="/tournament-teams/edit/{{teamId}}/{{tournamentId}}" method="post" name="tournamentTeamsForm">
+    <fieldset>
+	<legend>Edit a Tournament-Team</legend>
+	  <div class="form-row">
+	  <div class="form-group col-sm-6">
+	    <label for="team">Team</label>
+	    <select class="form-control" name="team" id="team">
+		  {{#each allTeams}}
+		    <option value="{{team_id}}">{{team_name}}</option>
+		  {{/each}}
+		</select>
+	  </div>
+	  <div class="form-group col-sm-6">
+	    <label for="tournament">Tournament</label>
+	    <select class="form-control" name="tournament" id="tournament">
+		  {{#each allTournaments}}
+		    <option value="{{tournament_id}}">{{tournament_name}}</option>
+		  {{/each}}
+		</select>
+	  </div>
+	  </div>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</body>
+</div>

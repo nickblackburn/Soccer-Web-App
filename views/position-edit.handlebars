@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Position</h1>
+</div>
+<br>
+<body onload="prepopulateForm('positionForm', [{name: 'position_name', value: '{{positionName}}'}])">
+<form action="/position/edit/{{positionId}}" method="post" name="positionForm" onsubmit="return validatePositionForm()">
+    <fieldset>
+	<legend>Edit a Position</legend>
+	  <div class="form-row">
+	    <label for="position_name">Position Name</label>
+	    <input class="form-control" type="text" name="position_name" id="position_name">
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</body>
+</div>

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Player Search</h1>
+</div>
+<h4>Player Search Results</h4>
+{{#if playerSearchResults}}
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+	<th>Team</th>
+	<th>Country</th>
+	<th>Area</th>
+	<th>Height (m)</th>
+	<th>Weight (lbs)</th>
+	<th>Skill Rating</th>
+	<th>Age</th>
+	<th>Position</th>
+	<th>Captain</th>
+	<th>Edit</th>
+	<th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+{{#each playerSearchResults}}
+    <tr>
+	<td>{{fname}} {{lname}}</td>
+	<td>{{team_name}}</td>
+	<td>{{country_name}}</td>
+	<td>{{area_name}}</td>
+	<td>{{height}}</td>
+	<td>{{weight}}</td>
+	<td>{{skill_rating}}</td>
+	<td>{{age}}</td>
+	<td>{{position_name}}</td>
+	{{#if captain}}
+	<td>Yes</td>
+	{{else}}
+	<td>No</td>
+	{{/if}}
+	<form action="/player/edit/{{player_id}}" method="get" onsubmit="return confirmEdit('{{fname}} {{lname}}')">
+	  <td><input type="submit" value="Edit"></td>
+	</form>
+	<form action="/player/delete/{{player_id}} method="get" onsubmit="return confirmDelete()">
+	  <td><input type="submit" value="Delete"></td>
+	</form>
+    </tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+{{else}}
+<p>No search results.</p>
+{{/if}}
+</div>

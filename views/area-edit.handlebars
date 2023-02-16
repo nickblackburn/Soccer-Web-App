@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Area</h1>
+</div>
+<br>
+<body onload="prepopulateForm('areaForm', [{name: 'area_name', value: '{{areaName}}'}])">
+<form action="/area/edit/{{areaId}}" method="post" name="areaForm" onsubmit="return validateAreaForm()">
+    <fieldset>
+	<legend>Edit an Area</legend>
+	  <div class="form-row">
+	    <label for="area_name">Area Name</label>
+	    <input class="form-control" type="text" name="area_name" id="area_name">
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</body>
+</div>

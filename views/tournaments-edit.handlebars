@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Tournaments</h1>
+</div>
+<br>
+<body onload="prepopulateForm('tournamentsForm', [{name: 'tournament_name', value: '{{tournamentName}}'}])">
+<form action="/tournaments/edit/{{tournamentId}}" method="post" name="tournamentsForm" onsubmit="return validateTournamentsForm()">
+    <fieldset>
+	<legend>Edit a Tournament</legend>
+	  <div class="form-row">
+	    <label for="tournament_name">Tournament Name</label>
+	    <input class="form-control" type="text" name="tournament_name" id="tournament_name">
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</body>
+</div>

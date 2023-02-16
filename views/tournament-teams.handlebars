@@ -1,0 +1,59 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Tournament-Teams</h1>
+</div>
+<h4>Current Tournament-Teams</h4>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="thead-dark">
+    <tr>
+        <th>Team</th>
+	<th>Tournament</th>
+	<th>Edit</th>
+	<th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+{{#each allTournamentTeamsInfo}}
+    <tr>
+	<td>{{team_name}}</td>
+	<td>{{tournament_name}}</td>
+	<form action="tournament-teams/edit/{{team_id}}/{{tournament_id}}" method="get" onsubmit="return confirmEdit('{{team_name}} {{tournament_name}}')">
+	  <td><input type="submit" value="Edit"></td>
+	</form>
+	<form action="/tournament-teams/delete/{{team_id}}/{{tournament_id}}" method="get" onsubmit="return confirmDelete()">
+	  <td><input type="submit" value="Delete"></td>
+	</form>
+    </tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+<br>
+<form action="/tournament-teams" method="post">
+    <fieldset>
+	<legend>Add New Tournament-Team</legend>
+	  <div class="form-row">
+	  <div class="form-group col-sm-6">
+	    <label for="team">Team</label>
+	    <select class="form-control" name="team" id="team">
+		  {{#each allTeams}}
+		    <option value="{{team_id}}">{{team_name}}</option>
+		  {{/each}}
+		</select>
+	  </div>
+	  <div class="form-group col-sm-6">
+	    <label for="tournament">Tournament</label>
+	    <select class="form-control" name="tournament" id="tournament">
+		  {{#each allTournaments}}
+		    <option value="{{tournament_id}}">{{tournament_name}}</option>
+		  {{/each}}
+		</select>
+	  </div>
+	  </div>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</div>

@@ -1,0 +1,53 @@
+.jumbotron {
+    background-color: transparent !important;
+    margin-top: 50px;
+}
+
+.jumbotron h1 {
+    font-family: Arial;
+    font-size: 50px;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+nav ul li {
+    padding-left: 10px;
+}
+
+body {
+    font-family: Arial;
+    background-color: #f7f7f7;
+}
+
+footer {
+    background-color: #f7f7f7;
+    font-style: italic;
+    font-family: Arial;
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.card {
+    height: 300px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.card ul {
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+.table-responsive {
+    height: 200px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .jumbotron {
+	margin-top: 150px;
+    }
+}

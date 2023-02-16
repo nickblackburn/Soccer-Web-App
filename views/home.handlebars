@@ -1,0 +1,128 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Soccer Website</h1>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Best Players</h5>
+        <ul class="card-text">
+	  {{#each bestPlayers}}
+	  <li>{{fname}} {{lname}} - {{skill_rating}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/player" class="card-link">Player Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Best Teams</h5>
+        <ul class="card-text">
+	  {{#each bestTeams}}
+	  <li>{{team_name}} - {{average_skill_rating}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/team" class="card-link">Team Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Most Populated Countries</h5>
+        <ul class="card-text">
+	  {{#each mostPopulatedCountries}}
+	  <li>{{country_name}} - {{population}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/country" class="card-link">Country Page</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Most Dense Areas</h5>
+	<ul class="card-text">
+          {{#each mostDenseAreas}}
+	  <li>{{area_name}} - {{number_of_countries}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/area" class="card-link">Area page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Champions League Teams</h5>
+	<ul class="card-text">
+	  {{#each championsLeagueTeams}}
+	  <li>{{team_name}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/tournament-teams" class="card-link">Tournament-Teams Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Most Popular Positions</h5>
+        <ul class="card-text">
+	  {{#each mostPopularPositions}}
+	  <li>{{position_name}} - {{position_count}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/position" class="card-link">Position Page</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Captains</h5>
+        <ul class="card-text">
+	  {{#each captains}}
+	  <li>{{fname}} {{lname}}</li>
+	  {{/each}}
+	</ul>
+	<a href="/player" class="card-link">Player Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Youngest Teams</h5>
+        <ul class="card-text">
+	  {{#each youngestTeams}}
+	  <li>{{team_name}} - {{average_age}}</li>
+	  {{/each}}
+	</ul>
+        <a href="/team" class="card-link">Team Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Teams in the Most Tournaments</h5>
+        <ul class="card-text">
+          {{#each teamsWithMostTournaments}}
+	  <li>{{team_name}} - {{tournament_count}}</li>
+	  {{/each}}
+	</ul>
+	<a href="/tournament-teams" class="card-link">Tournament-Teams Page</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

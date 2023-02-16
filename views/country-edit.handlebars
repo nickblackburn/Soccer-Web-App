@@ -1,0 +1,34 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Country</h1>
+</div>
+<br>
+<body onload="prepopulateForm('countryForm', [{name: 'country_name', value: '{{countryName}}'}, {name: 'area', value: '{{countryArea}}'}, {name: 'population', value: '{{countryPopulation}}'}])">
+<form action="/country/edit/{{countryId}}" method="post" name="countryForm" onsubmit="return validateCountryForm()">
+    <fieldset>
+	<legend>Edit a Country</legend>
+	  <div class="form-row">
+	    <div class="form-group col-sm-4">
+	      <label for="country_name">Country Name</label>
+	      <input class="form-control" type="text" name="country_name" id="country_name">
+	    </div>
+	    <div class="form-group col-sm-4">
+	      <label for="area">Area</label>
+	      <select class="form-control" name="area" id="area">
+		  {{#each allAreas}}
+		    <option value="{{area_id}}">{{area_name}}</option>
+		  {{/each}}
+	      </select>
+	    </div>
+	    <div class="form-group col-sm-4">
+	      <label for="population">Population</label>
+	      <input class="form-control" type="number" name="population" id="population">
+	    </div>
+	  </div>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</body>
+</div>

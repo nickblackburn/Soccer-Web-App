@@ -1,0 +1,85 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Player</h1>
+</div>
+<br>
+<body onload="prepopulateForm('playerForm', [{name: 'fname', value: '{{playerFName}}'}, {name: 'lname', value: '{{playerLName}}'}, {name: 'team', value: '{{playerTeam}}'}, {name: 'country', value: '{{playerCountry}}'}, {name: 'area', value: '{{playerArea}}'}, {name: 'height', value: '{{playerHeight}}'}, {name: 'weight', value: '{{playerHeight}}'}, {name: 'skill_rating', value: '{{playerSkillRating}}'}, {name: 'age', value: '{{playerAge}}'}, {name: 'position', value: '{{playerPosition}}'}, {name: 'captain', value: '{{playerCaptain}}'}])">
+<form action="/player/edit/{{playerId}}" method="post" name="playerForm" onsubmit="return validatePlayerForm()">
+    <fieldset>
+        <legend>Edit a Player</legend>
+        <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" name="fname" id="fname">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="lname">Last Name</label>
+            <input type="text" class="form-control" name="lname" id="lname">
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-4">
+              <label for="team">Team</label>
+              <select class="form-control" name="team" id="team">
+                  {{#each allTeams}}
+                    <option value="{{team_id}}">{{team_name}}</option>
+                  {{/each}}
+              </select>
+          </div>
+          <div class="form-group col-sm-4">
+              <label for="country">Country</label>
+              <select class="form-control" name="country" id="country">
+                {{#each allCountries}}
+                  <option value="{{country_id}}">{{country_name}}</option>
+                {{/each}}
+              </select>
+          </div>
+          <div class="form-group col-sm-4">
+              <label for="area">Area</label>
+              <select class="form-control" name="area" id="area">
+                {{#each allAreas}}
+                  <option value="{{area_id}}">{{area_name}}</option>
+                {{/each}}
+              </select>
+          </div>
+        </div>
+	<div class="form-row">
+          <div class="form-group col-sm-2">
+            <label for="height">Height</label>
+            <input class="form-control" type="number" step="0.01" name="height" id="height">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="weight">Weight</label>
+            <input class="form-control" type="number" step="0.01" name="weight" id="weight">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="skill_rating">Skill Rating</label>
+            <input class="form-control" type="number" name="skill_rating" id="skill_rating">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="age">Age</label>
+            <input class="form-control" type="number" name="age" id="age">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="position">Position</label>
+            <select class="form-control" name="position" id="position">
+                {{#each allPositions}}
+                  <option value="{{position_id}}">{{position_name}}</option>
+                {{/each}}
+            </select>
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="captain">Captain</label>
+            <select class="form-control" name="captain" id="captain">
+                   <option value="0">No</option>
+                   <option value="1">Yes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <input class="form-control btn btn-primary" type="submit">
+        </div>
+    </fieldset>
+</form>
+</body>
+</div>

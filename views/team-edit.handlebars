@@ -1,0 +1,52 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Team</h1>
+</div>
+<br>
+<body onload="prepopulateForm('teamForm', [{name: 'team_name', value: '{{teamName}}'}, {name: 'league', value: '{{teamLeague}}'}, {name: 'coach', value: '{{teamCoach}}'}, {name: 'country', value: '{{teamCountry}}'}, {name: 'area', value: '{{teamArea}}'}])">
+<form action="/team/edit/{{teamId}}" method="post" name="teamForm" onsubmit="return validateTeamForm()">
+    <fieldset>
+	<legend>Edit a Team</legend>
+	<div class="form-row">
+	  <div class="form-group col-sm-6">
+	    <label for="team_name">Team Name</label>
+	    <input class="form-control" type="text" name="team_name" id="team_name">
+	  </div>
+	  <div class="form-group col-sm-6">
+	    <label for="league">League</label>
+	    <select class="form-control" name="league" id="league">
+		  {{#each allLeagues}}
+		    <option value="{{league_id}}">{{league_name}}</option>
+		  {{/each}}
+		</select>
+	  </div>
+	</div>
+	<div class="form-row">
+	  <div class="form-group col-sm-4">
+	    <label for="coach">Coach</label>
+	    <input class="form-control" type="text" name="coach" id="coach">
+	  </div>
+	  <div class="form-group col-sm-4">
+	    <label for="country">Country</label>
+	    <select class="form-control" name="country" id="country">
+		  {{#each allCountries}}
+	            <option value="{{country_id}}">{{country_name}}</option>
+		  {{/each}}
+	      </select><br>
+	  </div>
+	  <div class="form-group col-sm-4">
+	    <label for="area">Area</label>
+	    <select class="form-control" name="area" id="area">
+		  {{#each allAreas}}
+	            <option value="{{area_id}}">{{area_name}}</option>
+		  {{/each}}
+	      </select>
+	  </div>
+	</div>
+	<div class="form-row">
+	  <input class="form-control btn btn-primary" type="submit">
+	</div>
+    </fieldset>
+</form>
+</body>
+</div>

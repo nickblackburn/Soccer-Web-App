@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>League</h1>
+</div>
+<br>
+<body onload="prepopulateForm('leagueForm', [{name: 'league_name', value: '{{leagueName}}'}])">
+<form action="/league/edit/{{leagueId}}" method="post" name="leagueForm" onsubmit="return validateLeagueForm()">
+    <fieldset>
+	<legend>Edit a League</legend>
+	<div class="form-row">
+	  <label for="league_name">League Name</label>
+	  <input class="form-control" type="text" name="league_name" id="league_name">
+	</div>
+	<br>
+	<div class="form-row">
+	  <input class="form-control btn btn-primary" type="submit">
+	</div>
+    </fieldset>
+</form>
+</body>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Area</h1>
+</div>
+<h4>Current Areas</h4>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="thead-dark">
+    <tr>
+	<th>Area</th>
+	<th>Edit</th>
+	<th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+{{#each allAreaInfo}}
+    <tr>
+	<td>{{area_name}}</td>
+	<form action="area/edit/{{area_id}}" method="get" onsubmit="return confirmEdit('{{area_name}}')">
+	  <td><input type="submit" value="Edit"></td>
+	</form>
+	<form action="/area/delete/{{area_id}}" method="get" onsubmit="return confirmDelete()">
+	  <td><input type="submit" value="Delete"></td>
+	</form>
+    </tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+<br>
+<form action="/area" method="post" name="areaForm" onsubmit="return validateAreaForm()">
+    <fieldset>
+	<legend>Add New Area</legend>
+	  <div class="form-row">
+	    <label for="area_name">Area Name</label>
+	    <input class="form-control" type="text" name="area_name" id="area_name">
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</div>

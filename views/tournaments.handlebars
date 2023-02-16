@@ -1,0 +1,44 @@
+<div class="container-fluid">
+<div class="jumbotron">
+    <h1>Tournaments</h1>
+</div>
+<h4>Current Tournaments</h4>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="thead-dark">
+    <tr>
+	<th>Tournament</th>
+	<th>Edit</th>
+	<th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+{{#each allTournamentsInfo}}
+    <tr>
+	<td>{{tournament_name}}</td>
+	<form action="tournaments/edit/{{tournament_id}}" method="get" onsubmit="return confirmEdit('{{tournament_name}}')">
+	  <td><input type="submit" value="Edit"></td>
+	</form>
+	<form action="/tournaments/delete/{{tournament_id}}" method="get" onsubmit="return confirmDelete()">
+	  <td><input type="submit" value="Delete"</td>
+	</form>
+    </tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+<br>
+<form action="/tournaments" method="post" name="tournamentsForm" onsubmit="return validateTournamentsForm()">
+    <fieldset>
+	<legend>Add New Tournament</legend>
+	  <div class="form-row">
+	    <label for="tournament_name">Tournament Name</label>
+	    <input class="form-control" type="text" name="tournament_name" id="tournament_name">
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <input class="form-control btn btn-primary" type="submit">
+	  </div>
+    </fieldset>
+</form>
+</div>
